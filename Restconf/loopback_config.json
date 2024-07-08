@@ -1,0 +1,14 @@
+{
+    "Cisco-IOS-XE-native:Loopback": {
+      "name": 100,
+      "ip": {
+        "address": {
+          "primary": {
+            "address": "10.10.10.100",
+            "mask": "255.255.255.255"
+          }
+        }
+      }
+    }
+  }
+  

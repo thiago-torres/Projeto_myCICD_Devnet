@@ -1,0 +1,14 @@
+---
+- name: Configuração do Roteador CSR
+  hosts: csr
+  connection: network_cli
+  gather_facts: no
+  tasks:
+    - name: Configurar interface loopback
+      ios_config:
+        parents:
+          - interface Loopback106
+        lines:
+          - description Configurado via Ansible - Thiago Torres
+          - ip address 10.10.100.106 255.255.255.255
+

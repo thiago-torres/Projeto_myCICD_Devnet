@@ -1,0 +1,4 @@
+interface Loopback150
+description Interface configurada via Netmiko - Thiago Torres
+ip address 10.10.10.150 255.255.255.255
+
