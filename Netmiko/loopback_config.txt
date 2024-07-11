@@ -1,4 +1,4 @@
-interface Loopback201
+interface Loopback200
 description Interface configurada via Netmiko - Thiago Torres
 ip address 10.10.10.201 255.255.255.255
 

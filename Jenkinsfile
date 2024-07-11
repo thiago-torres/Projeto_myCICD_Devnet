@@ -28,8 +28,8 @@ pipeline {
                 if ! command -v python3 &> /dev/null
                 then
                     echo "Python3 not found, installing..."
-                    apt-get update
-                    apt-get install -y python3
+                    sudo apt-get update
+                    sudo apt-get install -y python3
                 fi
                 '''
             }
