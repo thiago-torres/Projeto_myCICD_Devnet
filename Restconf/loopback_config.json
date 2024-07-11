@@ -1,6 +1,6 @@
 {
     "Cisco-IOS-XE-native:Loopback": {
-      "name": 101,
+      "name": 102,
       "ip": {
         "address": {
           "primary": {

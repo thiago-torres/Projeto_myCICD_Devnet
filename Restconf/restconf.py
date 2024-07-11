@@ -9,7 +9,8 @@ from device_info import ios_xe
 
 # Função para carregar o conteúdo do arquivo de configuração JSON
 def load_config(file_path):
-    with open(file_path, 'r') as file:
+    full_path = os.path.abspath(os.path.join(os.path.dirname(__file__), file_path))
+    with open(full_path, 'r') as file:
         return json.load(file)
 
 if __name__ == '__main__':
