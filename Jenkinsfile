@@ -23,15 +23,20 @@ pipeline {
 
         stage('Install Python') {
             steps {
-                // Install Python 3
-                sh '''
-                if ! command -v python3 &> /dev/null
-                then
-                    echo "Python3 not found, installing..."
-                    sudo apt-get update
-                    sudo apt-get install -y python3
-                fi
-                '''
+                // Use the installed Python tool to execute Python scripts
+                python {
+                    // Define the tool installation name as configured in Jenkins
+                    tool 'Python3' // Replace with the actual tool name from Jenkins configuration
+                    
+                    // Verify Python installation
+                    script {
+                        def pythonExe = tool name: 'Python3', type: 'hudson.plugins.python.PythonInstallation'
+                        def pythonHome = pythonExe.getHome()
+                        def pythonVersion = pythonExe.getPythonExecutable()
+                        sh "echo 'Python Version: ${pythonVersion}'"
+                        sh "echo 'Python Home: ${pythonHome}'"
+                    }
+                }
             }
         }
 
