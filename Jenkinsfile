@@ -21,7 +21,7 @@ pipeline {
             }
         }
 
-        stage('Configure Router') {
+        stage('Configure Router Netmiko') {
             when {
                 // Trigger this stage only if changes are detected in Netmiko/loopback_config.txt
                 changeset "Netmiko/loopback_config.txt"
@@ -30,6 +30,45 @@ pipeline {
                 script {
                     // Execute Netmiko.py with loopback_config.txt as input
                     sh 'python3 Netmiko/Netmiko.py'
+                }
+            }
+        }
+
+        stage('Configure Router Ansible') {
+            when {
+                // Trigger this stage only if changes are detected in Ansible/csr_config.yml
+                changeset "Ansible/csr_config.yml"
+            }
+            steps {
+                script {
+                    // Execute Ansible playbook with csr_config.yml as input
+                    sh 'ansible-playbook Ansible/csr_config.yml'
+                }
+            }
+        }
+
+        stage('Configure Router Netconf') {
+            when {
+                // Trigger this stage only if changes are detected in Netconf/loopback_config.xml
+                changeset "Netconf/loopback_config.xml"
+            }
+            steps {
+                script {
+                    // Execute Netconf.py with loopback_config.xml as input
+                    sh 'python3 Netconf/netconf.py'
+                }
+            }
+        }
+
+        stage('Configure Router Restconf') {
+            when {
+                // Trigger this stage only if changes are detected in Restconf/loopback_config.json
+                changeset "Restconf/loopback_config.json"
+            }
+            steps {
+                script {
+                    // Execute Restconf.py with loopback_config.json as input
+                    sh 'python3 Restconf/restconf.py'
                 }
             }
         }
@@ -46,4 +85,3 @@ pipeline {
         }
     }
 }
-
