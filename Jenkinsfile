@@ -21,6 +21,20 @@ pipeline {
             }
         }
 
+        stage('Install Python') {
+            steps {
+                // Install Python 3
+                sh '''
+                if ! command -v python3 &> /dev/null
+                then
+                    echo "Python3 not found, installing..."
+                    apt-get update
+                    apt-get install -y python3
+                fi
+                '''
+            }
+        }
+
         stage('Configure Router') {
             when {
                 // Trigger this stage only if changes are detected in Netmiko/loopback_config.txt
