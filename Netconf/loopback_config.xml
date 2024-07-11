@@ -2,7 +2,7 @@
   <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
     <interface>
       <Loopback>
-        <name>109</name>
+        <name>110</name>
         <description>Configurado via NETCONF - Thiago Torres</description>
         <ip>
           <address>
