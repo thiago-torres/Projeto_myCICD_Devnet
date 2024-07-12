@@ -6,7 +6,7 @@
     <interface>
       <Loopback>
         <name>101</name>
-        <description>Configured via NETCONF - Thiago Torres - CICD Pipeline</description>
+        <description>Configured via NETCONF - Thiago Torres - CICD Pipeline </description>
         <ip>
           <address>
             <primary>
