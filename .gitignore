@@ -1,0 +1,6 @@
+# Arquivos específicos que devem ser ignorados
+/Ansible/inventory/hosts.ini
+/device_info.py
+
+# Diretório de cache Python
+__pycache__/
