@@ -34,7 +34,7 @@ def main():
     }
 
     config_data = load_json_config('loopback_config.json')
-    config_data['Cisco-IOS-XE-native:Loopback']['description'] = "Configured via Restconf - Thiago Torres CICD Jenkins"
+    config_data['Cisco-IOS-XE-native:Loopback']['description'] = "Configured via Restconf - Thiago Torres - CICD Pipeline"
 
     print(config_data)
     print('--------------------(2)-----------------------')

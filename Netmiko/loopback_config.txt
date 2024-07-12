@@ -1,4 +1,3 @@
-# Loopback interface configuration using Netmiko
 interface Loopback100
-description Interface configurada via Netmiko - Thiago Torres - CICD Jenkins
+description Configured via Netmiko - Thiago Torres - CICD Pipeline
 ip address 10.10.10.100 255.255.255.255
