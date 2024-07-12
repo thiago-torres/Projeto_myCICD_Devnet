@@ -2,7 +2,7 @@
   "//": "Loopback interface configuration using RESTCONF",
   "Cisco-IOS-XE-native:Loopback": {
     "name": 102,
-    "description": "Configurado via RESTCONF - Thiago Torres - CICD Jenkins",
+    "description": "Configurado via RESTCONF - Thiago Torres - CICD Jenkins ",
     "ip": {
       "address": {
         "primary": {
