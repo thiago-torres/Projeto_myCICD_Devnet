@@ -41,14 +41,6 @@ pipeline {
             }
             steps {
                 script {
-                    // Print the current directory and list files
-                    sh 'pwd'
-                    sh 'ls -la'
-                    
-                    // List files in the Ansible directory
-                    sh 'ls -la Ansible'
-                    sh 'ls -la Ansible/inventory'
-                    
                     // Execute the Ansible playbook
                     sh 'ansible-playbook Ansible/csr_config.yml -i Ansible/inventory/hosts.ini'
                 }
