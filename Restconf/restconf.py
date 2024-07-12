@@ -32,7 +32,7 @@ if __name__ == '__main__':
     config_data = load_config('loopback_config.json')
     
     # Adiciona a descrição à configuração da interface
-    config_data['Cisco-IOS-XE-native:Loopback']['description'] = "Configurado via Restconf - Thiago Torres"
+    config_data['Cisco-IOS-XE-native:Loopback']['description'] = "Configurado via Restconf - Thiago Torres CICD Jenkins"
 
     print(config_data)
     print('--------------------(2)-----------------------')
