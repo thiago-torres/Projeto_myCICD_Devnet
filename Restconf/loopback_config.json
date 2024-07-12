@@ -1,15 +1,14 @@
 {
-  "//": "Loopback interface configuration using RESTCONF",
-  "Cisco-IOS-XE-native:Loopback": {
-    "name": 102,
-    "description": "Configurado via RESTCONF - Thiago Torres - CICD Jenkins ",
-    "ip": {
-      "address": {
-        "primary": {
-          "address": "10.10.10.102",
-          "mask": "255.255.255.255"
+    "Cisco-IOS-XE-native:Loopback": {
+      "name": 102,
+      "ip": {
+        "address": {
+          "primary": {
+            "address": "10.10.10.102",
+            "mask": "255.255.255.255"
+          }
         }
       }
     }
   }
-}
+  
