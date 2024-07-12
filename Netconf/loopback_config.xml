@@ -1,13 +1,16 @@
+<!--
+  Loopback interface configuration using NETCONF
+-->
 <config xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
   <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
     <interface>
       <Loopback>
-        <name>111</name>
+        <name>101</name>
         <description>Configurado via NETCONF - Thiago Torres - CICD Jenkins</description>
         <ip>
           <address>
             <primary>
-              <address>10.10.10.111</address>
+              <address>10.10.10.101</address>
               <mask>255.255.255.255</mask>
             </primary>
           </address>

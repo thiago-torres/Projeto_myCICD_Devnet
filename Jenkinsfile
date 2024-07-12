@@ -8,80 +8,97 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Checkout the code from GitHub using the defined credentials
-                checkout([$class: 'GitSCM',
-                          branches: [[name: '*/main']],
-                          doGenerateSubmoduleConfigurations: false,
-                          extensions: [],
-                          userRemoteConfigs: [[
-                              url: 'https://github.com/thiago-torres/Projeto_myCICD_Devnet.git',
-                              credentialsId: env.GIT_CREDENTIALS_ID
-                          ]]
-                ])
+                checkoutCodeFromGitHub()
             }
         }
 
         stage('Configure Router Netmiko') {
             when {
-                // Trigger this stage only if changes are detected in Netmiko/loopback_config.txt
                 changeset "Netmiko/loopback_config.txt"
             }
             steps {
-                script {
-                    // Execute Netmiko.py with loopback_config.txt as input
-                    sh 'python3 Netmiko/Netmiko.py'
-                }
+                configureRouterWithNetmiko()
             }
         }
 
         stage('Configure Router Ansible') {
             when {
-                // Trigger this stage only if changes are detected in Ansible/csr_config.yml
                 changeset "Ansible/csr_config.yml"
             }
             steps {
-                script {
-                    // Execute the Ansible playbook
-                    sh 'ansible-playbook Ansible/csr_config.yml -i Ansible/inventory/hosts.ini'
-                }
+                configureRouterWithAnsible()
             }
         }
 
         stage('Configure Router Netconf') {
             when {
-                // Trigger this stage only if changes are detected in Netconf/loopback_config.xml
                 changeset "Netconf/loopback_config.xml"
             }
             steps {
-                script {
-                    // Execute Netconf.py with loopback_config.xml as input
-                    sh 'python3 Netconf/netconf.py'
-                }
+                configureRouterWithNetconf()
             }
         }
 
         stage('Configure Router Restconf') {
             when {
-                // Trigger this stage only if changes are detected in Restconf/loopback_config.json
                 changeset "Restconf/loopback_config.json"
             }
             steps {
-                script {
-                    // Execute Restconf.py with loopback_config.json as input
-                    sh 'python3 Restconf/restconf.py'
-                }
+                configureRouterWithRestconf()
             }
         }
     }
 
     post {
         success {
-            // Notification or further actions on success
-            echo 'Pipeline executed successfully!'
+            notifyPipelineSuccess()
         }
         failure {
-            // Notification or rollback steps on failure
-            echo 'Pipeline failed!'
+            notifyPipelineFailure()
         }
     }
+}
+
+def checkoutCodeFromGitHub() {
+    checkout([$class: 'GitSCM',
+              branches: [[name: '*/main']],
+              doGenerateSubmoduleConfigurations: false,
+              extensions: [],
+              userRemoteConfigs: [[
+                  url: 'https://github.com/thiago-torres/Projeto_myCICD_Devnet.git',
+                  credentialsId: env.GIT_CREDENTIALS_ID
+              ]]
+    ])
+}
+
+def configureRouterWithNetmiko() {
+    script {
+        sh 'python3 Netmiko/Netmiko.py'
+    }
+}
+
+def configureRouterWithAnsible() {
+    script {
+        sh 'ansible-playbook Ansible/csr_config.yml -i Ansible/inventory/hosts.ini'
+    }
+}
+
+def configureRouterWithNetconf() {
+    script {
+        sh 'python3 Netconf/netconf.py'
+    }
+}
+
+def configureRouterWithRestconf() {
+    script {
+        sh 'python3 Restconf/restconf.py'
+    }
+}
+
+def notifyPipelineSuccess() {
+    echo 'Pipeline executed successfully!'
+}
+
+def notifyPipelineFailure() {
+    echo 'Pipeline failed!'
 }

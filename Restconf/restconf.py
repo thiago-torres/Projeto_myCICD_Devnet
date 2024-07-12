@@ -4,45 +4,48 @@ import json
 import requests
 from requests.auth import HTTPBasicAuth
 
+# Add parent directory to sys.path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from device_info import ios_xe
 
-# Função para carregar o conteúdo do arquivo de configuração JSON
-def load_config(file_path):
+def load_json_config(file_path):
     full_path = os.path.abspath(os.path.join(os.path.dirname(__file__), file_path))
     with open(full_path, 'r') as file:
         return json.load(file)
 
-if __name__ == '__main__':
+def get_restconf_url(base_address, port):
+    return f"https://{base_address}:{port}/restconf/data"
+
+def get_loopback_url(base_url):
+    return f"{base_url}/Cisco-IOS-XE-native:native/interface/Loopback"
+
+def configure_loopback_interface(config_data, url, headers, auth):
+    return requests.patch(url, json=config_data, headers=headers, auth=auth, verify=False)
+
+def main():
     print('--------------------(1)-----------------------')
 
-    # URL base para o endpoint RESTCONF
-    restconf_url = f"https://{ios_xe['address']}:{ios_xe['restconf_port']}/restconf/data"
+    restconf_url = get_restconf_url(ios_xe['address'], ios_xe['restconf_port'])
+    loopback_url = get_loopback_url(restconf_url)
 
-    # Endpoint específico para configuração da interface Loopback
-    loopback_url = f"{restconf_url}/Cisco-IOS-XE-native:native/interface/Loopback"
-
-    # Headers necessários para o RESTCONF
     headers = {
         "Accept": "application/yang-data+json",
         "Content-Type": "application/yang-data+json"
     }
 
-    # Carrega a configuração do arquivo JSON
-    config_data = load_config('loopback_config.json')
-    
-    # Adiciona a descrição à configuração da interface
-    config_data['Cisco-IOS-XE-native:Loopback']['description'] = "Configurado via Restconf - Thiago Torres CICD Jenkins"
+    config_data = load_json_config('loopback_config.json')
+    config_data['Cisco-IOS-XE-native:Loopback']['description'] = "Configured via Restconf - Thiago Torres CICD Jenkins"
 
     print(config_data)
     print('--------------------(2)-----------------------')
 
-    # Realiza a autenticação básica usando as credenciais fornecidas
     auth = HTTPBasicAuth(ios_xe['username'], ios_xe['password'])
-    
-    response = requests.patch(loopback_url, json=config_data, headers=headers, auth=auth, verify=False)
+    response = configure_loopback_interface(config_data, loopback_url, headers, auth)
 
     if response.status_code == 204:
-        print("Configuração modificada com sucesso.")
+        print("Configuration successfully modified.")
     else:
-        print(f"Falha ao modificar a configuração: {response.status_code} - {response.text}")
+        print(f"Failed to modify configuration: {response.status_code} - {response.text}")
+
+if __name__ == "__main__":
+    main()
