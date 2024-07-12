@@ -7,7 +7,8 @@ from ncclient import manager
 
 # Função para carregar o conteúdo do arquivo de configuração
 def config(file_path):
-    with open(file_path, 'r') as file:
+    full_path = os.path.abspath(os.path.join(os.path.dirname(__file__), file_path))
+    with open(full_path, 'r') as file:
         return file.read()
 
 if __name__ == '__main__':
