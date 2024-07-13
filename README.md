@@ -1,7 +1,7 @@
 # Projeto_myCICD_Devnet
 
 ## Descrição
-Este repositório é dedicado ao aprendizado e implementação de um pipeline de CI/CD utilizando Jenkins para configurar roteadores Cisco IOS XE Virtual (Cat8000V). O objetivo é integrar e automatizar configurações de rede de forma eficiente e segura.
+Este repositório é dedicado ao aprendizado e implementação de um pipeline de CI/CD utilizando Jenkins para configurar roteadores Cisco IOS XE Virtual (Cat8000V). O objetivo é integrar e automatizar configurações de rede de forma eficiente.
 
 ## Tecnologias Utilizadas
 - **Jenkins**: Ferramenta de automação para criar pipelines de CI/CD.
@@ -31,6 +31,4 @@ Projeto_myCICD_Devnet/
 ├── Restconf/
 │   ├── loopback_config.json
 │   └── restconf.py
-├── __pycache__/
-│   └── device_info.cpython-310.pyc
 └── device_info.py
