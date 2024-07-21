@@ -7,7 +7,7 @@
     - name: Configure loopback interface
       ios_config:
         parents:
-          - interface Loopback13
+          - interface Loopback14
         lines:
           - description Configured via Ansible - Thiago Torres - CICD Pipeline
           - ip address 10.10.10.14 255.255.255.255
