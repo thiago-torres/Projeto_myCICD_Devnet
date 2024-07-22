@@ -1,5 +1,6 @@
 ncclient
 requests
 netmiko
+ansible
 paramiko
 ansible-pylibssh
