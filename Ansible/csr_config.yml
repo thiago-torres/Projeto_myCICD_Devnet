@@ -1,13 +1,13 @@
 ---
 - name: CSR Router Configuration
   hosts: csr
+  connection: network_cli
   gather_facts: no
-  vars:
-    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
-
   tasks:
     - name: Configure loopback interface
       ios_config:
+        parents:
+          - interface Loopback15
         lines:
-          - interface Loopback0
-          - ip address 10.10.10.1 255.255.255.0
+          - description Configured via Ansible - Thiago Torres - CICD Pipeline
+          - ip address 10.10.10.15 255.255.255.255
