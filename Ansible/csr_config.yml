@@ -4,7 +4,7 @@
   connection: network_cli
   gather_facts: no
   tasks:
-    - name: Configure loopback interface
+    - name: Configure loopback interface 
       ios_config:
         parents:
           - interface Loopback15
