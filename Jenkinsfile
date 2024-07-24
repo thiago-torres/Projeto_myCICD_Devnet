@@ -79,7 +79,7 @@ def configureRouterWithNetmiko() {
 
 def configureRouterWithAnsible() {
     script {
-        sh 'ansible-playbook -i ./Ansible/inventory/hosts.ini ./Ansible/csr_config.yml -vvvvv'
+        sh 'ansible-playbook -i ./Ansible/inventory/hosts.ini ./Ansible/csr_config.yml'
     }
 }
 
