@@ -1,5 +1,4 @@
 ---
-
 - name: CSR Router Configuration
   hosts: csr
   connection: network_cli
