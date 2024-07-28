@@ -18,5 +18,8 @@ RUN /opt/venv/bin/pip install -r /tmp/requirements.txt
 # Instalação do Ansible
 RUN apt-get install -y ansible
 
-USER jenkins
+# Adicionando a chave SSH do roteador ao known_hosts
+RUN mkdir -p /var/jenkins_home/.ssh && \
+    ssh-keyscan sandbox-iosxe-recomm-1.cisco.com >> /var/jenkins_home/.ssh/known_hosts
 
+USER jenkins
