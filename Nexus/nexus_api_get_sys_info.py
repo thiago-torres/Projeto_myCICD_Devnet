@@ -3,7 +3,7 @@ import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import requests, urllib3
-from device_info import nexos_2
+from device_info import nexus_1
 from ncclient import manager
 
 # Disable Self-Signed Cert warning for demo
@@ -13,12 +13,12 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 session = requests.Session()
 
 # Define URL and PAYLOAD variables
-URL = f"https://{nexos_2['address']}/api/aaaLogin.json"
+URL = f"https://{nexus_1['address']}/api/aaaLogin.json"
 PAYLOAD = {
           "aaaUser": {
             "attributes": {
-              "name": f"{nexos_2['username']}",
-              "pwd": f"{nexos_2['password']}"
+              "name": f"{nexus_1['username']}",
+              "pwd": f"{nexus_1['password']}"
                }
             }
           }
@@ -27,7 +27,7 @@ PAYLOAD = {
 session.post(URL,json=PAYLOAD,verify=False)
 
 # Define SYS_URL variable
-SYS_URL = f"https://{nexos_2['address']}/api/mo/sys.json"
+SYS_URL = f"https://{nexus_1['address']}/api/mo/sys.json"
 
 # Obtain system information by making session.get call
 # then convert it to JSON format then filter to system attributes

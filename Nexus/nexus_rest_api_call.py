@@ -4,11 +4,11 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 
 import json
 import requests
-from device_info import nexos_2
+from device_info import nexus_2
 
-username = nexos_2['username']
-password = nexos_2['password']
-ip_addr =  nexos_2['address']
+username = nexus_2['username']
+password = nexus_2['password']
+ip_addr =  nexus_2['address']
 
 payload = {
   "topSystem": {

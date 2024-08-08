@@ -7,7 +7,7 @@ ios_xe = {
             "password": "C1sco12345"
           }
 
-nexos_1 = {
+nexus_1 = {
             "address": "sandbox-nxos-1.cisco.com",
             "netconf_port": 830,
             "restconf_port": 443,
@@ -18,7 +18,7 @@ nexos_1 = {
             "password": "Admin_1234!"
           }
 
-nexos_2 = {
+nexus_2 = {
             "address": "sbx-nxos-mgmt.cisco.com",
             "netconf_port": 830,
             "restconf_port": 443,
