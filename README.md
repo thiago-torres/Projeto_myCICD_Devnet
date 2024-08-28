@@ -40,11 +40,12 @@ devnet_learning_hub/
 ├── setup_env_windows.ps1
 ├── README.md
 └── requirements.txt
-
+```
 ## Variáveis de Ambiente
 
-As variáveis de ambiente podem ser configuradas manualmente ou importadas através do script `setup_env_device_info.py`. 
-Para uma configuração mais ágil, siga os passos abaixo:
+As variáveis de ambiente podem ser configuradas manualmente ou importadas através do arquivo `setup_env_device_info.py`. 
+
+Ou para uma configuração mais ágil, siga os passos abaixo:
 
 ### Para Linux
 
@@ -67,3 +68,4 @@ Para uma configuração mais ágil, siga os passos abaixo:
     ```powershell
     Get-ChildItem Env:
     ```
+Os detalhes dos devices podem ser verificados em [Cisco DevNet Sandbox](https://devnetsandbox.cisco.com/)
