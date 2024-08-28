@@ -8,7 +8,9 @@
             "mask": "255.255.255.255"
           }
         }
-      }
+      },
+      "description": "Configured via Restconf - Thiago Torres - CICD Pipeline"
     }
+    
   }
   
