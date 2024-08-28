@@ -1,0 +1,39 @@
+# DevNet Learning Hub
+
+## Descrição
+Este repositório é dedicado ao aprendizado e automação no contexto da certificação DevNet Associate. Ele inclui uma coleção de scripts e configurações para a implementação e automação de pipelines de CI/CD usando Jenkins, além de ferramentas para gerenciar e configurar redes da Cisco. O objetivo é integrar e automatizar a configuração de redes de forma eficiente, utilizando várias tecnologias e ferramentas.
+
+## Tecnologias Utilizadas
+- **Jenkins**: Ferramenta de automação para criar pipelines de CI/CD.
+- **Docker**: Utilizado para criar ambientes isolados e consistentes.
+- **Ansible**: Ferramenta de automação de configuração.
+- **Netmiko**: Biblioteca Python para gerenciar dispositivos de rede via SSH.
+- **Netconf e Restconf**: Protocolos de configuração e gerenciamento de rede.
+- **Cisco DNA**: Plataforma para automação e gerenciamento de redes empresariais.
+- **Cisco ACI**: Plataforma para automação e gerenciamento de redes de data center.
+- **GitHub**: Repositório de código e controle de versão.
+- **Webhooks**: Para integração entre GitHub e Jenkins.
+
+## Estrutura do Repositório
+
+```plaintext
+devnet_learning_hub/
+├── cicd/
+│   ├── Dockerfile
+│   ├── Jenkinsfile
+│   ├── ansible_project/
+│   ├── netconf_project/
+│   ├── netmiko_project/
+│   └── restconf_project/
+├── controllers_api/
+│   ├── aci_api/
+│   └── dnac_api/
+├── devices_api/
+│   ├── netconf_project/
+│   ├── netmiko_project/
+│   ├── nxos_project/
+│   └── restconf_project/
+├── iac/
+│   └── ansible_project/
+├── README.md
+└── requirements.txt
