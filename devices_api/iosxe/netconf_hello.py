@@ -1,17 +1,13 @@
-import sys
 import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
 from ncclient import manager
-from device_info import ios_xe_sandbox
 
 if __name__ == '__main__':
     try:
         with manager.connect(
-            host=ios_xe_sandbox['address'],
-            port=ios_xe_sandbox['netconf_port'],
-            username=ios_xe_sandbox['username'],
-            password=ios_xe_sandbox['password'],
+            host=os.getenv("IOS_XE_ADDRESS"),
+            port=830,
+            username=os.getenv("IOS_XE_USERNAME"),
+            password=os.getenv("IOS_XE_PASSWORD"),
             hostkey_verify=False
         ) as m:           
             
