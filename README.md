@@ -35,5 +35,35 @@ devnet_learning_hub/
 │   └── restconf_project/
 ├── iac/
 │   └── ansible_project/
+├── setup_env_device_info.py
+├── setup_env_linux.sh
+├── setup_env_windows.ps1
 ├── README.md
 └── requirements.txt
+
+## Variáveis de Ambiente
+
+As variáveis de ambiente podem ser configuradas manualmente ou importadas através do script `setup_env_device_info.py`. 
+Para uma configuração mais ágil, siga os passos abaixo:
+
+### Para Linux
+
+1. Execute o script `setup_env_linux.sh`:
+    ```bash
+    ./setup_env_linux.sh
+    ```
+2. Recarregue as variáveis de ambiente com:
+    ```bash
+    source ~/.bashrc  # ou source ~/.zshrc, dependendo do seu shell
+    ```
+
+### Para Windows
+
+1. Execute o script `setup_env_windows.ps1` no PowerShell como Administrador:
+    ```powershell
+    .\setup_env_windows.ps1
+    ```
+2. Verifique as variáveis com:
+    ```powershell
+    Get-ChildItem Env:
+    ```
