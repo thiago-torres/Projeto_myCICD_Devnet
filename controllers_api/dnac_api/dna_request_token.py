@@ -1,18 +1,12 @@
-import sys
 import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-from device_info import dna_sandbox
-from requests.auth import HTTPBasicAuth
-
 import requests
-
+from requests.auth import HTTPBasicAuth
 
 def main():
 
-    url = f"https://{dna_sandbox["address"]}:{dna_sandbox["port"]}/dna/system/api/v1/auth/token"
+    url = f"https://{os.getenv('DNA_ADDRESS')}:443/dna/system/api/v1/auth/token"
     print(f"URL being requested: {url}")
-    auth = HTTPBasicAuth(dna_sandbox['username'], dna_sandbox['password'])
+    auth = HTTPBasicAuth(os.getenv('DNA_USERNAME'), os.getenv('DNA_PASSWORD'))
     
     response = requests.post(url, auth=auth, verify=False)  # O parâmetro verify=False ignora a verificação do certificado SSL
     

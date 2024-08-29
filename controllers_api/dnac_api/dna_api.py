@@ -1,11 +1,12 @@
+import os
 import requests
 from requests.auth import HTTPBasicAuth
 
 class DNAapi():
-    def __init__(self, dna):
-        self.dna_addres = dna["address"]
-        self.dna_port = dna["restconf_port"]
-        self.auth = HTTPBasicAuth(dna['username'], dna['password'])
+    def __init__(self):
+        self.dna_addres = os.getenv('DNA_ADDRESS')
+        self.dna_port = 443
+        self.auth = HTTPBasicAuth(os.getenv('DNA_USERNAME'), os.getenv('DNA_PASSWORD'))
 
         self.token = self.token_request()
         self.headers = self.headers_request()
