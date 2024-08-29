@@ -1,7 +1,7 @@
 ---
 
-- name: CSR Router Configuration
-  hosts: csr
+- name: IOSXE Router Configuration
+  hosts: iosxe
   connection: network_cli
   gather_facts: no
   tasks:
