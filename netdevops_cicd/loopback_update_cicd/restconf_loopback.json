@@ -1,14 +1,16 @@
 {
     "Cisco-IOS-XE-native:Loopback": {
-      "name": 15,
+      "name": 12,
       "ip": {
         "address": {
           "primary": {
-            "address": "10.10.10.15",
+            "address": "10.10.10.12",
             "mask": "255.255.255.255"
           }
         }
-      }
+      },
+      "description": "Configured via Restconf - Thiago Torres - CICD Pipeline"
     }
+    
   }
   

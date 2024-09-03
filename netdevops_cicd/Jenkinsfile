@@ -14,25 +14,16 @@ pipeline {
 
         stage('Configure Router Netmiko') {
             when {
-                changeset "Netmiko/loopback_config.txt"
+                changeset "netdevops_cicd/loopback_update_cicd/netmiko_loopback.txt"
             }
             steps {
                 configureRouterWithNetmiko()
             }
         }
 
-        stage('Configure Router Ansible') {
-            when {
-                changeset "Ansible/csr_config.yml"
-            }
-            steps {
-                configureRouterWithAnsible()
-            }
-        }
-
         stage('Configure Router Netconf') {
             when {
-                changeset "Netconf/loopback_config.xml"
+                changeset "netdevops_cicd/loopback_update_cicd/netconf_loopback.xml"
             }
             steps {
                 configureRouterWithNetconf()
@@ -41,7 +32,7 @@ pipeline {
 
         stage('Configure Router Restconf') {
             when {
-                changeset "Restconf/loopback_config.json"
+                changeset "netdevops_cicd/loopback_update_cicd/restconf_loopback.json"
             }
             steps {
                 configureRouterWithRestconf()
@@ -73,25 +64,19 @@ def checkoutCodeFromGitHub() {
 
 def configureRouterWithNetmiko() {
     script {
-        sh 'python3 Netmiko/Netmiko.py'
-    }
-}
-
-def configureRouterWithAnsible() {
-    script {
-        sh 'ansible-playbook -i ./Ansible/inventory/hosts.ini ./Ansible/csr_config.yml'
+        sh 'python3 netdevops_cicd/loopback_update_cicd/netmiko_config_loopback.py'
     }
 }
 
 def configureRouterWithNetconf() {
     script {
-        sh 'python3 Netconf/netconf.py'
+        sh 'python3 netdevops_cicd/loopback_update_cicd/netconf_config_loopback.py'
     }
 }
 
 def configureRouterWithRestconf() {
     script {
-        sh 'python3 Restconf/restconf.py'
+        sh 'python3 netdevops_cicd/loopback_update_cicd/restconf_config_loopback.py'
     }
 }
 

@@ -1,4 +1,3 @@
-interface Loopback10
+interface Loopback11
 description Configured via Netmiko - Thiago Torres - CICD Pipeline
-ip address 10.10.10.10 255.255.255.255
-commit
+ip address 10.10.10.11 255.255.255.255
