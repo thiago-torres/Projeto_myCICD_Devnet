@@ -6,7 +6,7 @@ from requests.auth import HTTPBasicAuth
 def main():
     print('--------------------(1)-----------------------')
 
-    with open("restconf_loopback.json", 'r') as file:
+    with open("netdevops_cicd/loopback_update_cicd/restconf_loopback.json", 'r') as file:
         config_data = json.load(file)
 
     print(config_data)
