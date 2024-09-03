@@ -13,7 +13,7 @@ def main():
             print("Conexão bem-sucedida")
             print('--------------------(1)-----------------------')            
             
-            with open("netconf_loopback.xml", "r") as file:
+            with open("netdevops_cicd/loopback_update_cicd/netconf_loopback.xml", "r") as file:
                 config_data = file.read()
             print(config_data)
             print('--------------------(2)-----------------------')
