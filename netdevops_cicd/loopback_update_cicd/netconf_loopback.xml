@@ -5,12 +5,12 @@
   <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
     <interface>
       <Loopback>
-        <name>13</name>
+        <name>100</name>
         <description>Configured via NETCONF - Thiago Torres - CICD Pipeline</description>
         <ip>
           <address>
             <primary>
-              <address>10.10.10.13</address>
+              <address>10.10.10.100</address>
               <mask>255.255.255.255</mask>
             </primary>
           </address>
