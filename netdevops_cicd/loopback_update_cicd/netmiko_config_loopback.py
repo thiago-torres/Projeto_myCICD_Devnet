@@ -17,7 +17,7 @@ def main():
     connection = ConnectHandler(**device_params)
 
     with ConnectHandler(**device_params) as connection:
-        with open("netmiko_loopback.txt") as file:
+        with open("netdevops_cicd/loopback_update_cicd/netmiko_loopback.txt") as file:
             config_data = file.read().splitlines()
 
         config_output = connection.send_config_set(config_data)
